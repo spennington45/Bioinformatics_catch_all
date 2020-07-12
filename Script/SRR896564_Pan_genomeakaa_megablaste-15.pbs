@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N SRR896564_Pan_genomeakaa_megablast
+#PBS -q batch
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=100:00:00
+#PBS -j oe
+
+date
+module load blast+
+cd /opt/ncbi/databases
+
+blastn -task megablast -db nt -evalue 1e-15 -num_descriptions 5 -num_alignments 5 -num_threads 12 -query /scratch/smpenni/SRR896564_Pan_genomeakaa.fasta -out /scratch/smpenni/SRR896564_Pan_genomeakaa_megablast_e-15.blast 
+date

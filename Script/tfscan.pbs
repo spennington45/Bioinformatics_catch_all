@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N tfscan_KLF1
+#PBS -q batch
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=120:00:00
+#PBS -j oe
+
+date
+module load emboss
+cd /opt/emboss/tfdata
+
+tfscan -sequence /home/smpenni/KLF1_promoter.txt -menu V -mismatch 0 -outfile /home/smpenni/KLF1_promoter.tfscan
+date

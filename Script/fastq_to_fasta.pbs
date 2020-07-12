@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N SRR896564_Pan_genome
+#PBS -q batch
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=100:00:00
+#PBS -j oe
+
+date
+module load fastx_toolkit
+cd /panfs/panfs.cluster/scratch/smpenni
+
+fastq_to_fasta -n -i /panfs/panfs.cluster/scratch/smpenni/SRR896564_Pan_genome_fastx_trimmer_out.fastq -o SRR896564_Pan_genome.fasta -Q33
+date

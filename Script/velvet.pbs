@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N SRR934064_seq1_velvet
+#PBS -q batch
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=01:00:00
+#PBS -j oe
+
+date
+module load bio_apps
+cd /panfs/panfs.cluster/scratch/smpenni
+
+velveth full_21 21 -short -fasta SRR934064_seq1.fasta | velvetg full_21	
+date

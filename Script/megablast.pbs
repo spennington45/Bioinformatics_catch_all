@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#PBS -N SRR934064_seq1_megablast
+#PBS -q killable
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=500:00:00
+#PBS -j oe
+
+date
+module load blast+
+cd /opt/ncbi/databases
+
+blastn -task megablast -db nt -evalue 1e-6 -num_descriptions 5 -num_alignments 5 -num_threads 12 -query /scratch/smpenni/SRR934064_seq1.fasta -out /scratch/smpenni/SRR934064_seq1_megablast.blast 
+date

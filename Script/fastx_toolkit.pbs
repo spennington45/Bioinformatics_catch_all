@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#PBS -N DRR000777
+#PBS -q batch
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=01:00:00
+#PBS -j oe
+
+module load fastx_toolkit
+cd /panfs/panfs.cluster/scratch/smpenni
+
+fastq_to_fasta -n -i DRR000777_trim.fastq -o DRR000777_trim.fasta

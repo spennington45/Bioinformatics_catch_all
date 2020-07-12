@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q batch
+#PBS -l nodes=1:ppn=12
+#PBS -l walltime=100:00:00
+#PBS -N blastshort.{0}
+#PBS -j oe
+module load blast+
+cd /opt/ncbi/databases
+
+date
+
+blastn -task blastn-short -db nt -evalue 1e-6 -num_descriptions 5 -num_alignments 5 -num_threads 12 -query {0} -out {0}.blastn 
+
+date
+
